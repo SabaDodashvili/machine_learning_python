@@ -62,69 +62,69 @@ while True:
 arrAvg = sum(numsArr_2) / len(numsArr_2)
 print(arrAvg)
 
-# 24) შეიყვანეთ რიცხვი კლავიატურიდან. პროგრამამ უნდა დაბეჭდოს შეყვანილი რიცხვის ყველა გამყოფი. (მაგ. 18-ისგამოყოფებია: 1, 2, 3, 6, 9, 18)
+# 21) შეიყვანეთ 2 დადებითი მთელი რიცხვი. იპოვეთ ამ ორი რიცხვის უდიდესი საერთო გამყოფი.
 
-flag = False
-num = int(input())
-pas = 0
-cout = num
-while pas != num:
-    if num // cout == num / cout:
-        if num // cout != 0:
-            pas = num // cout
-            print(pas, end=' ')
-    cout = cout - 1
-if num == 1:
-    print()
-    print('ara')
-elif num == 2:
-    print()
-    print('martivis')
-elif num % 2 == 0:
-    print()
-    print('ara')
+num_3 = int(input("enter number one: "))
+num_4 = int(input("enter number two: "))
+minNum = None
+greatestCommonDenominator = 1
+
+
+if num_3 <= num_4:
+    minNum = num_3
 else:
-    print()
-    print('martivia')
+    minNum = num_4
 
+for i in range(2, minNum + 1):
+    if num_3 % i == 0 and num_4 % i == 0:
+        greatestCommonDenominator = i
+
+print(greatestCommonDenominator)
+
+# 24) შეიყვანეთ რიცხვი კლავიატურიდან. პროგრამამ უნდა დაბეჭდოს შეყვანილი რიცხვის ყველა გამყოფი. (მაგ. 18-ის
+# გამოყოფებია: 1, 2, 3, 6, 9, 18)
+
+num_5 = int(input("enter number: "))
+
+for i in range(1, num_5 + 1):
+    if num_5 % i == 0:
+        print(i)
 
 # 26) დაბეჭდეთ 2-დან 1000-მდე ყველა მარტივი რიცხვი.
 
-stop = False
-for i in range(2, 1000):
-    for j in range(2, int((i / 2) + 1)):
-        if (i % j != 0):
-            stop = True
-        else:
-            stop = False
+for i in range(2, 1001):
+    numberOfExits = 2
+
+    for k in range(2, i):
+        if numberOfExits >= 3:
             break
-    if (stop == True):
+        elif numberOfExits < 3 and i % k == 0:
+            numberOfExits += 1
+
+    if numberOfExits < 3:
         print(i)
 
 # 28) შეიყვანეთ ნებისმიერი რიცხი. იპოვეთ ამ რიცხვის ციფრთა რაოდენობა და დაბეჭდეთ.
 
-n = int(input())
-s = 0
-while n:
-    s += 1
-    n //= 10
-print(s)
+num_6 = input("enter number: ")
 
-# 31)შეიყვანეთ ნებისმიერი რიცხი. დაადგინეთ არის თუ არა შეტანილი რიცხვი პალინდრომი. (მითითება: პალინდრომია
+print(f"number of digits - {str(len(num_6))}")
+
+# 31) შეიყვანეთ ნებისმიერი რიცხი. დაადგინეთ არის თუ არა შეტანილი რიცხვი პალინდრომი. (მითითება: პალინდრომია
 # რიცხვი, რომელიც მარჯვნიდან და მარცხნიდან ერთნაირად იკითხება). მაგ. 12521
 
-def isPal(n):
-    r = 0
-    nn = n
-    while (n > 0):
-        k = n % 10
-        r = r * 10 + k
-        n = n // 10
-    return r == nn
+num_7 = input("enter number: ")
 
+i = 0
+k = len(num_7) - 1
+isPolindrom = True
 
-p = int(input())
-if isPal(p):
-    print("aris")
-else:
-    print("ar aris")
+while(i < len(num_7)):
+    if num_7[i] == num_7[k]:
+        i += 1
+        k -= 1
+    else:
+        isPolindrom = False
+        break
+
+print(isPolindrom)
